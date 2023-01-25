@@ -1,0 +1,92 @@
+@import "mixin";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    color: white;
+    background-color: black;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 980px;
+
+    .header {
+        @include border_style;
+        color: white;
+        margin-bottom: 15px;
+
+        .zip_code {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            font-size: 18px;
+            @include select_style;
+        }
+
+        .time {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            @include input_style;
+        }
+    }
+
+    &_worck {
+        @include border_style;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .options {
+            display: grid;
+            grid-template-columns: 3fr 8fr 1fr;
+            place-items: center;
+            row-gap: 30px;
+            .set {
+                @include set_style;
+                @include input_style;
+                @include select_style;
+
+                .name_set {
+                    grid-column: span 3;
+                    font-size: 18px;
+                }
+
+                .money {
+                    text-align: end;
+                }
+            }
+            .emissions {
+                line-height: 20px;
+            }
+            progress {
+                appearance: none;
+                height: 50%;
+                width: 90%;
+                &::-webkit-progress-bar {
+                    border: 1px solid rgb(177, 177, 177);
+                    background-color: #1d1c1c;
+                }
+                &::-webkit-progress-value {
+                    background:  rgb(177, 177, 177);
+                }
+            }
+            #el_progress {
+                &::-webkit-progress-value {
+                    background:  rgba(181, 230, 121, 1);
+                }
+            }
+        }
+    }
+}

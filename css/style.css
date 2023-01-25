@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  color: white;
+  background-color: black;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 980px;
+}
+.container .header {
+  border-radius: 15px;
+  background-color: #1d1c1c;
+  padding: 15px 15px 15px 15px;
+  color: white;
+  margin-bottom: 15px;
+}
+.container .header .zip_code {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  font-size: 18px;
+}
+.container .header .zip_code select {
+  width: 80px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.3137254902);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding-left: 5px;
+  float: left;
+}
+.container .header .zip_code select option {
+  font-size: 17px;
+  border-radius: 5px;
+  color: white;
+  background-color: #1d1c1c;
+}
+.container .header .time {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.container .header .time input {
+  width: 74px;
+  height: 26px;
+  background-color: rgba(0, 0, 0, 0.3137254902);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding-left: 5px;
+  float: left;
+  color: white;
+}
+.container_worck {
+  border-radius: 15px;
+  background-color: #1d1c1c;
+  padding: 15px 15px 15px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.container_worck .options {
+  display: grid;
+  grid-template-columns: 3fr 8fr 1fr;
+  place-items: center;
+  row-gap: 30px;
+}
+.container_worck .options .set {
+  display: grid;
+  align-items: center;
+  text-align: start;
+  gap: 5px;
+}
+.container_worck .options .set input {
+  width: 74px;
+  height: 26px;
+  background-color: rgba(0, 0, 0, 0.3137254902);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding-left: 5px;
+  float: left;
+  color: white;
+}
+.container_worck .options .set select {
+  width: 80px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.3137254902);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding-left: 5px;
+  float: left;
+}
+.container_worck .options .set select option {
+  font-size: 17px;
+  border-radius: 5px;
+  color: white;
+  background-color: #1d1c1c;
+}
+.container_worck .options .set .name_set {
+  grid-column: span 3;
+  font-size: 18px;
+}
+.container_worck .options .set .money {
+  text-align: end;
+}
+.container_worck .options .emissions {
+  line-height: 20px;
+}
+.container_worck .options progress {
+  appearance: none;
+  height: 50%;
+  width: 90%;
+}
+.container_worck .options progress::-webkit-progress-bar {
+  border: 1px solid rgb(177, 177, 177);
+  background-color: #1d1c1c;
+}
+.container_worck .options progress::-webkit-progress-value {
+  background: rgb(177, 177, 177);
+}
+.container_worck .options #el_progress::-webkit-progress-value {
+  background: rgb(181, 230, 121);
+}
+
+/*# sourceMappingURL=style.css.map */

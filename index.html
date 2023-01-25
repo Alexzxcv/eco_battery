@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="zip_code">
+                <p>ZIP Code:</p>
+                <select name="zip_code" id="zpp">
+                    <option value="1">1</option>
+                </select>
+            </div>
+            <div class="time">
+                <p>Energy Costs Over</p>
+                <input type="text">
+                <p>Years for</p>
+                <input type="text">
+                <p>h/day Productivity</p>
+            </div>
+        </div>
+        <div class="container_worck">
+            <div class="options">
+                <div class="set">
+                    <p class="name_set">Electric Forklift</p>
+                    <p>Consumpton</p>
+                    <select name="el_con" id="el_consamption">
+                        <option value="1">1</option>
+                    </select>
+                    <span>kW/h</span>
+                    <p>Cost</p>
+                    <span class="money">20</span>
+                    <span>$/kW</span>
+                </div>
+                <progress id="el_progress" max="100" value="10"></progress>
+                <p class="emissions"><span>20</span>tons<br>CO2/year</p>
+                <div class="set">
+                    <p class="name_set">LPG Forklift</p>
+                    <p>Consumpton</p>
+                    <select name="lpg_con" id="lpg_consamption">
+                        <option value="1">1</option>
+                    </select>
+                    <span>gal/h</span>
+                    <p>Cost</p>
+                    <span class="money">20</span>
+                    <span>$/gal</span>
+                </div>
+                <progress max="100" value="100"></progress>
+                <p class="emissions"><span>20</span>tons<br>CO2/year</p>
+                <div class="set">
+                    <p class="name_set">Diesel Forklift</p>
+                    <p>Consumpton</p>
+                    <select name="diesel_con" id="diesel_consamption">
+                        <option value="1">1</option>
+                    </select>
+                    <span>gal/h</span>
+                    <p>Cost</p>
+                    <span class="money">20</span>
+                    <span>$/gal</span>
+                </div>
+                <progress max="100" value="80"></progress>
+                <p class="emissions"><span>20</span>tons<br>CO2/year</p>
+            </div>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
