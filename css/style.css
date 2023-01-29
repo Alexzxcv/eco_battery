@@ -32,7 +32,7 @@ body {
 .container .header .zip_code select {
   width: 80px;
   height: 30px;
-  background-color: rgba(0, 0, 0, 0.3137254902);
+  background-color: #00000050;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
@@ -56,7 +56,7 @@ body {
 .container .header .time input {
   width: 74px;
   height: 26px;
-  background-color: rgba(0, 0, 0, 0.3137254902);
+  background-color: #00000050;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding-left: 5px;
@@ -86,7 +86,7 @@ body {
 .container_worck .options .set input {
   width: 74px;
   height: 26px;
-  background-color: rgba(0, 0, 0, 0.3137254902);
+  background-color: #00000050;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding-left: 5px;
@@ -96,7 +96,7 @@ body {
 .container_worck .options .set select {
   width: 80px;
   height: 30px;
-  background-color: rgba(0, 0, 0, 0.3137254902);
+  background-color: #00000050;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
@@ -119,20 +119,35 @@ body {
 .container_worck .options .emissions {
   line-height: 20px;
 }
-.container_worck .options progress {
+.container_worck .options .progress {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+.container_worck .options .progress span {
+  position: absolute;
+  display: block;
+  text-shadow: 0px 0px 3px black;
+}
+.container_worck .options .progress progress {
   appearance: none;
   height: 50%;
   width: 90%;
 }
-.container_worck .options progress::-webkit-progress-bar {
-  border: 1px solid rgb(177, 177, 177);
+.container_worck .options .progress progress::-webkit-progress-bar {
+  border: 1px solid #b1b1b1;
   background-color: #1d1c1c;
 }
-.container_worck .options progress::-webkit-progress-value {
-  background: rgb(177, 177, 177);
+.container_worck .options .progress progress::-webkit-progress-value {
+  background: #b1b1b1;
 }
-.container_worck .options #el_progress::-webkit-progress-value {
-  background: rgb(181, 230, 121);
+.container_worck .options .progress #el_progress::-webkit-progress-value {
+  background: #b5e679;
+}
+
+.options #value_el {
+  position: relative;
 }
 
 /*# sourceMappingURL=style.css.map */

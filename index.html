@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/js/jquery-3.6.3.min.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <title>Document</title>
 </head>
@@ -18,13 +20,15 @@
                 <p>ZIP Code:</p>
                 <select name="zip_code" id="zpp">
                     <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
                 </select>
             </div>
             <div class="time">
                 <p>Energy Costs Over</p>
-                <input type="text">
+                <input maxlength="2"  id="years" type="text" >
                 <p>Years for</p>
-                <input type="text">
+                <input maxlength="2" id="hour" type="text" >
                 <p>h/day Productivity</p>
             </div>
         </div>
@@ -34,41 +38,63 @@
                     <p class="name_set">Electric Forklift</p>
                     <p>Consumpton</p>
                     <select name="el_con" id="el_consamption">
-                        <option value="1">1</option>
+                        <option value="" selected disabled hidden>0</option>
+                        <option value="10">1</option>
+                        <option value="20">2</option>
+                        <option value="30">3</option>
+                        <option value="40">4</option>
+
                     </select>
                     <span>kW/h</span>
                     <p>Cost</p>
-                    <span class="money">20</span>
+                    <span id="El_sumCost" class="money">20</span>
                     <span>$/kW</span>
                 </div>
-                <progress id="el_progress" max="100" value="10"></progress>
-                <p class="emissions"><span>20</span>tons<br>CO2/year</p>
+                <div class="progress">
+                    <progress id="el_progress" max="100" value="0"></progress>
+                    <span id="sumCostEL" class="sumCost"></span>
+                </div>
+                <p class="emissions"><span id="el_value">20</span>tons<br>CO2/year</p>
                 <div class="set">
                     <p class="name_set">LPG Forklift</p>
                     <p>Consumpton</p>
                     <select name="lpg_con" id="lpg_consamption">
-                        <option value="1">1</option>
+                        <option value="" selected disabled hidden>0</option>
+                        <option value="10">1</option>
+                        <option value="20">2</option>
+                        <option value="30">3</option>
+                        <option value="40">4</option>
                     </select>
                     <span>gal/h</span>
                     <p>Cost</p>
-                    <span class="money">20</span>
+                    <span id="lpg_sumCost" class="money">20</span>
                     <span>$/gal</span>
                 </div>
-                <progress max="100" value="100"></progress>
-                <p class="emissions"><span>20</span>tons<br>CO2/year</p>
+                <div class="progress">
+                    <progress id="lpg_progress" max="100" value="0"></progress>
+                    <span id="sumCostLpg" class="sumCost"></span>
+                </div>
+                <p class="emissions"><span id="lpg_value">20</span>tons<br>CO2/year</p>
                 <div class="set">
                     <p class="name_set">Diesel Forklift</p>
                     <p>Consumpton</p>
                     <select name="diesel_con" id="diesel_consamption">
-                        <option value="1">1</option>
+                        <option value="" selected disabled hidden>0</option>
+                        <option value="10">1</option>
+                        <option value="20">2</option>
+                        <option value="30">3</option>
+                        <option value="40">4</option>
                     </select>
                     <span>gal/h</span>
                     <p>Cost</p>
-                    <span class="money">20</span>
+                    <span id="Diesel_sumCost" class="money">20</span>
                     <span>$/gal</span>
                 </div>
-                <progress max="100" value="80"></progress>
-                <p class="emissions"><span>20</span>tons<br>CO2/year</p>
+                <div class="progress">
+                    <progress id="diesel_progress" max="100" value="0"></progress>
+                    <span  id="sumCostDiesel"  class="sumCost"></span>
+                </div>
+                <p class="emissions"><span id="diesel_value">20</span>tons<br>CO2/year</p>
             </div>
         </div>
     </div>
