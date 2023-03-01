@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="/js/jquery-3.6.3.min.js">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <title>Document</title>
 </head>
 
@@ -17,18 +16,25 @@
     <div class="container">
         <div class="header">
             <div class="zip_code">
-                <p>ZIP Code:</p>
+                <p>Region:</p>
                 <select name="zip_code" id="zpp">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                    <option value="1" selected>New Englang</option>
+                    <option value="2">Middle Atlantic</option>
+                    <option value="3">East North Central</option>
+                    <option value="4">West North Central</option>
+                    <option value="5">South Atlantic</option>
+                    <option value="6">East South Central</option>
+                    <option value="7">West South Central</option>
+                    <option value="8">Mountain</option>
+                    <option value="9">Pacific Contiguous</option>
+                    <option value="10">Pacific Noncontiguous</option>
                 </select>
             </div>
             <div class="time">
                 <p>Energy Costs Over</p>
-                <input maxlength="2"  id="years" type="text" >
+                <input maxlength="2" value="5"  id="years" type="text" >
                 <p>Years for</p>
-                <input maxlength="2" id="hour" type="text" >
+                <input maxlength="2" value="12" id="hour" type="text" >
                 <p>h/day Productivity</p>
             </div>
         </div>

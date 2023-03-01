@@ -1,16 +1,70 @@
-let year = $("#years"), hour = $('#hour'), allHour = 0, allYear = 0, allTime = 0, result_Ei = 0, percent_Ei = 0, percent_Lpg = 0, percent_Diesel = 0, result_1 = 0, result_2 = 0;
-let costEl = 0, costLPG = 0, costDiesel = 0, result_Lpg = 0, result_Diesel = 0, max_result = 0;
+let year = $("#years"),
+    hour = $('#hour'),
+    allHour = 0,
+    allYear = 0,
+    allTime = 0,
+    result_Ei = 0,
+    percent_Ei = 0,
+    percent_Lpg = 0,
+    percent_Diesel = 0,
+    result_1 = 0,
+    result_2 = 0,
+    costEl = 0,
+    costLPG = 0,
+    costDiesel = 0,
+    resultLpg = 0,
+    resultDiesel = 0,
+    max_result = 0;
+
 let zipCode = $(`#zpp`);
-let arrZip = [[40, 50, 100], [10, 20, 30], [45, 65, 75]];
-let checkId = 0;
+
+let costStateElectric = {
+    newEnglang: 0.27,
+    middleAtlantic: 0.19,
+    eastNorthCentral: 0.16,
+    westNorthCentral: 0.12,
+    southAtlantic: 0.13,
+    eastSouthCentral: 0.13,
+    westSouthCentral: 0.13,
+    mountain: 0.13,
+    pacificContiguous: 0.18,
+    pacificNoncontiguous: 0.34,
+};
+
+let costStateGas = {
+    newEnglang: 27.04,
+    middleAtlantic: 19.34,
+    eastNorthCentral: 15.62,
+    westNorthCentral: 11.62,
+    southAtlantic: 13.46,
+    eastSouthCentral: 12.73,
+    westSouthCentral: 13.39,
+    mountain: 12.62,
+    pacificContiguous: 17.67,
+    pacificNoncontiguous: 33.61,
+};
+
+let costStateDiesel = {
+    newEnglang: 27.04,
+    middleAtlantic: 19.34,
+    eastNorthCentral: 15.62,
+    westNorthCentral: 11.62,
+    southAtlantic: 13.46,
+    eastSouthCentral: 12.73,
+    westSouthCentral: 13.39,
+    mountain: 12.62,
+    pacificContiguous: 17.67,
+    pacificNoncontiguous: 33.61,
+};
+
 zipCodeFunc();
 
 const input1 = document.querySelector('#years');
 input1.addEventListener('input', () => {
     let inputValue = input1.value.replace(/[^0-9.,]/g, '');
     input1.value = inputValue;
-    if (input1.value === "00"){
-        input1.value = 0;   
+    if (input1.value === "00") {
+        input1.value = 0;
     }
     if (input1.value.length === 9) {
         input1.classList.add('success');
@@ -23,8 +77,8 @@ const input2 = document.querySelector('#hour');
 input2.addEventListener('input', () => {
     let inputValue = input2.value.replace(/[^0-9.,]/g, '');
     input2.value = inputValue;
-    if (input2.value === "00"){
-        input2.value = 0;   
+    if (input2.value === "00") {
+        input2.value = 0;
     }
 
     if (input2.value.length === 9) {
@@ -34,33 +88,95 @@ input2.addEventListener('input', () => {
     }
 });
 
-
 function zipCodeFunc() {
-    if (zipCode.val() == 1) {
-        $(`#El_sumCost`).text(arrZip[0][0])
-        $(`#lpg_sumCost`).text(arrZip[1][0])
-        $(`#Diesel_sumCost`).text(arrZip[2][0])
-        costEl = Number($(`#El_sumCost`).text());
-        costLPG = Number($(`#lpg_sumCost`).text());
-        costDiesel = Number($(`#Diesel_sumCost`).text());
-    }
-
-    if (zipCode.val() == 2) {
-        $(`#El_sumCost`).text(arrZip[0][1])
-        $(`#lpg_sumCost`).text(arrZip[1][1])
-        $(`#Diesel_sumCost`).text(arrZip[2][1])
-        costEl = Number($(`#El_sumCost`).text());
-        costLPG = Number($(`#lpg_sumCost`).text());
-        costDiesel = Number($(`#Diesel_sumCost`).text());
-    }
-
-    if (zipCode.val() == 3) {
-        $(`#El_sumCost`).text(arrZip[0][2])
-        $(`#lpg_sumCost`).text(arrZip[1][2])
-        $(`#Diesel_sumCost`).text(arrZip[2][2])
-        costEl = Number($(`#El_sumCost`).text());
-        costLPG = Number($(`#lpg_sumCost`).text());
-        costDiesel = Number($(`#Diesel_sumCost`).text());
+    switch (zipCode.val()) {
+        case "1":
+            $(`#El_sumCost`).text(costStateElectric.newEnglang)
+            $(`#lpg_sumCost`).text(costStateGas.newEnglang)
+            $(`#Diesel_sumCost`).text(costStateDiesel.newEnglang)
+            costEl = costStateElectric.newEnglang;
+            costLPG = costStateGas.newEnglang;
+            costDiesel = costStateDiesel.newEnglang;
+            break;
+        case "2":
+            $(`#El_sumCost`).text(costStateElectric.middleAtlantic)
+            $(`#lpg_sumCost`).text(costStateGas.middleAtlantic)
+            $(`#Diesel_sumCost`).text(costStateDiesel.middleAtlantic)
+            costEl = costStateElectric.middleAtlantic;
+            costLPG = costStateGas.middleAtlantic;
+            costDiesel = costStateDiesel.middleAtlantic;
+            break;
+        case "3":
+            $(`#El_sumCost`).text(costStateElectric.eastNorthCentral)
+            $(`#lpg_sumCost`).text(costStateGas.eastNorthCentral)
+            $(`#Diesel_sumCost`).text(costStateDiesel.eastNorthCentral)
+            costEl = costStateElectric.eastNorthCentral;
+            costLPG = costStateGas.eastNorthCentral;
+            costDiesel = costStateDiesel.eastNorthCentral;
+            break;
+        case "4":
+            $(`#El_sumCost`).text(costStateElectric.westNorthCentral)
+            $(`#lpg_sumCost`).text(costStateGas.westNorthCentral)
+            $(`#Diesel_sumCost`).text(costStateDiesel.westNorthCentral)
+            costEl = costStateElectric.westNorthCentral;
+            costLPG = costStateGas.westNorthCentral;
+            costDiesel = costStateDiesel.westNorthCentral;
+            break;
+        case "5":
+            $(`#El_sumCost`).text(costStateElectric.southAtlantic)
+            $(`#lpg_sumCost`).text(costStateGas.southAtlantic)
+            $(`#Diesel_sumCost`).text(costStateDiesel.southAtlantic)
+            costEl = costStateElectric.southAtlantic;
+            costLPG = costStateGas.southAtlantic;
+            costDiesel = costStateDiesel.southAtlantic;
+            break;
+        case "6":
+            $(`#El_sumCost`).text(costStateElectric.eastSouthCentral)
+            $(`#lpg_sumCost`).text(costStateGas.eastSouthCentral)
+            $(`#Diesel_sumCost`).text(costStateDiesel.eastSouthCentral)
+            costEl = costStateElectric.eastSouthCentral;
+            costLPG = costStateGas.eastSouthCentral;
+            costDiesel = costStateDiesel.eastSouthCentral;
+            break;
+        case "7":
+            $(`#El_sumCost`).text(costStateElectric.westSouthCentral)
+            $(`#lpg_sumCost`).text(costStateGas.westSouthCentral)
+            $(`#Diesel_sumCost`).text(costStateDiesel.westSouthCentral)
+            costEl = costStateElectric.westSouthCentral;
+            costLPG = costStateGas.westSouthCentral;
+            costDiesel = costStateDiesel.westSouthCentral;
+            break;
+        case "8":
+            $(`#El_sumCost`).text(costStateElectric.mountain)
+            $(`#lpg_sumCost`).text(costStateGas.mountain)
+            $(`#Diesel_sumCost`).text(costStateDiesel.mountain)
+            costEl = costStateElectric.mountain;
+            costLPG = costStateGas.mountain;
+            costDiesel = costStateDiesel.mountain;
+            break;
+        case "9":
+            $(`#El_sumCost`).text(costStateElectric.pacificContiguous)
+            $(`#lpg_sumCost`).text(costStateGas.pacificContiguous)
+            $(`#Diesel_sumCost`).text(costStateDiesel.pacificContiguous)
+            costEl = costStateElectric.pacificContiguous;
+            costLPG = costStateGas.pacificContiguous;
+            costDiesel = costStateDiesel.pacificContiguous;
+            break;
+        case "10":
+            $(`#El_sumCost`).text(costStateElectric.pacificNoncontiguous)
+            $(`#lpg_sumCost`).text(costStateGas.pacificNoncontiguous)
+            $(`#Diesel_sumCost`).text(costStateDiesel.pacificNoncontiguous)
+            costEl = costStateElectric.pacificNoncontiguous;
+            costLPG = costStateGas.pacificNoncontiguous;
+            costDiesel = costStateDiesel.pacificNoncontiguous;
+            break;
+        default:
+            $(`#El_sumCost`).text(costStateElectric.newEnglang)
+            $(`#lpg_sumCost`).text(costStateGas.newEnglang)
+            $(`#Diesel_sumCost`).text(costStateDiesel.newEnglang)
+            costEl = costStateElectric.newEnglang;
+            costLPG = costStateGas.newEnglang;
+            costDiesel = costStateDiesel.newEnglang;
     }
 }
 
@@ -69,63 +185,61 @@ $('#zpp').change(function () {
     allHourFunc();
 });
 result_1 = $("#years").keyup(function () {
-    allHourFunc()
-    check()
+    allHourFunc();
 });
 
 result_2 = $("#hour").keyup(function () {
-    allHourFunc()
-    check()
+    allHourFunc();
 });
 
 $('#years').change(function () {
-    allHourFunc()
+    allHourFunc();
 });
 
 $('#hour').change(function () {
-    allHourFunc()
+    allHourFunc();
 });
 
 $('#el_consamption').change(function () {
-    allHourFunc()
+    allHourFunc();
 });
 
 $('#lpg_consamption').change(function () {
-    allHourFunc()
+    allHourFunc();
 });
 
 $('#diesel_consamption').change(function () {
-    allHourFunc()
+    allHourFunc();
 });
 
 let add = function () {
 
     allTime = allYear * allHour * 365;
     result_Ei = costEl * allTime * Number($('#el_consamption').val());
-    result_Lpg = costLPG * allTime * Number($('#lpg_consamption').val());
-    result_Diesel = costDiesel * allTime * Number($('#diesel_consamption').val());
-    max_result = Math.max(result_Ei, result_Lpg, result_Diesel);
-    if (result_Ei > 0 && result_Lpg > 0 && result_Diesel > 0 && max_result === result_Ei) {
-        percent_Diesel = (result_Diesel * 100) / result_Ei;
-        percent_Lpg = (result_Lpg * 100) / result_Ei;
+    resultLpg = costLPG * allTime * Number($('#lpg_consamption').val());
+    resultDiesel = costDiesel * allTime * Number($('#diesel_consamption').val());
+    max_result = Math.max(result_Ei, resultLpg, resultDiesel);
+    if (result_Ei > 0 && resultLpg > 0 && resultDiesel > 0 && max_result === result_Ei) {
+        percent_Diesel = (resultDiesel * 100) / result_Ei;
+        percent_Lpg = (resultLpg * 100) / result_Ei;
         $("#el_progress").val(100);
         $("#lpg_progress").val(percent_Lpg);
         $("#diesel_progress").val(percent_Diesel);
         AllValue();
     }
 
-    if (result_Ei > 0 && result_Lpg > 0 && result_Diesel > 0 && max_result === result_Lpg) {
-        percent_Ei = (result_Ei * 100) / result_Lpg;
-        percent_Diesel = (result_Diesel * 100) / result_Lpg;
+    if (result_Ei > 0 && resultLpg > 0 && resultDiesel > 0 && max_result === resultLpg) {
+        percent_Ei = (result_Ei * 100) / resultLpg;
+        percent_Diesel = (resultDiesel * 100) / resultLpg;
         $("#el_progress").val(percent_Ei);
         $("#lpg_progress").val(100);
         $("#diesel_progress").val(percent_Diesel);
         AllValue();
     }
 
-    if (result_Ei > 0 && result_Lpg > 0 && result_Diesel > 0 && max_result === result_Diesel) {
-        percent_Ei = (result_Ei * 100) / result_Diesel;
-        percent_Lpg = (result_Lpg * 100) / result_Diesel;
+    if (result_Ei > 0 && resultLpg > 0 && resultDiesel > 0 && max_result === resultDiesel) {
+        percent_Ei = (result_Ei * 100) / resultDiesel;
+        percent_Lpg = (resultLpg * 100) / resultDiesel;
         $("#el_progress").val(percent_Ei);
         $("#lpg_progress").val(percent_Lpg);
         $("#diesel_progress").val(100);
@@ -142,7 +256,7 @@ let allHourFunc = function () {
 
 let AllValue = function () {
     $(`#sumCostEL`).text("$" + result_Ei)
-    $(`#sumCostLpg`).text("$" + result_Lpg)
-    $(`#sumCostDiesel`).text("$" + result_Diesel)
+    $(`#sumCostLpg`).text("$" + resultLpg)
+    $(`#sumCostDiesel`).text("$" + resultDiesel)
 }
 
